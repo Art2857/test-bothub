@@ -1,0 +1,50 @@
+{
+  "name": "backend_bothub",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "rimraf ./.dist && tsc",
+    "start": "npm run build && node ./.dist/main.js",
+    "test": "jest",
+    "test:ints": "jest --config ./jest.config.js --testMatch=\"**/*.test@[ie]int.ts\"",
+    "test:units": "jest --config ./jest.config.js --testMatch=\"**/*.test@unit.ts\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/lodash": "^4.17.7",
+    "@types/node": "^22.5.4",
+    "@types/nodemailer": "^6.4.15",
+    "jest": "^29.7.0",
+    "prisma": "^5.19.1",
+    "rimraf": "^6.0.1",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.19.1",
+    "depfy": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21",
+    "nodemailer": "^6.9.15",
+    "zod": "^3.23.8"
+  },
+  "imports": {
+    "#libs/*": [
+      "./.dist/libs/*/index.js"
+    ],
+    "#ioc-modules/*": [
+      "./.dist/ioc-modules/*/index.js"
+    ],
+    "#ioc-modules/*/static": [
+      "./.dist/ioc-modules/*/static.js"
+    ]
+  }
+}
